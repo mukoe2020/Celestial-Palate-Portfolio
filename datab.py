@@ -82,12 +82,7 @@ session = Session()
     phone_number='1234567890'
 )
 
-new_customer2 = Customer(
-    first_name='Manny',
-    last_name='Quinn',
-    email='mannyquinn@example.com',
-    phone_number='0334567890'
-)
+
 
 new_customer3 = Customer(
     first_name='Habie',
@@ -107,10 +102,19 @@ session.add(new_customer2)
 session.add(new_customer3)
 session.add(new_customer4)
 
+
+
+new_customer = Customer(
+    first_name='Amor',
+    last_name='Quinn',
+    email='amorquinn@example.com',
+    phone_number='0554567890'
+)
+
 new_payment = Payment(
-    customer_id='b608b303-3a0d-42b9-af9d-089298f7d3c9 ',
+    customer_id='6bb7e87d-b68d-4f0c-a9c0-ad548f9226db',
     amount=100,
-    status='incomplete'
+    status='complete'
 )
 
 new_reservation = Reservation(
@@ -120,6 +124,8 @@ new_reservation = Reservation(
 )
 session.add(new_reservation)
 """
+
+
 
 session.commit()
 session.close()
