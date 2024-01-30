@@ -113,17 +113,13 @@ new_payment = Payment(
     status='incomplete'
 )
 
-
-
-session.add(new_reservation)
-
-"""
 new_reservation = Reservation(
     customer_id='b608b303-3a0d-42b9-af9d-089298f7d3c9',
     payment_id='372e1ca3-485a-464a-9052-480e4f9c72ae',
     num_of_guests=4
 )
-
 session.add(new_reservation)
+"""
+
 session.commit()
 session.close()
