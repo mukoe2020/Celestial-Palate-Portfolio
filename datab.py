@@ -106,14 +106,24 @@ new_customer4 = Customer(
 session.add(new_customer2)
 session.add(new_customer3)
 session.add(new_customer4)
-"""
 
 new_payment = Payment(
-    customer_id='2444b80e-506a-4994-8897-50bcc7f636f7',
+    customer_id='b608b303-3a0d-42b9-af9d-089298f7d3c9 ',
     amount=100,
-    status='completed'
+    status='incomplete'
 )
 
-session.add(new_payment)
+
+
+session.add(new_reservation)
+
+"""
+new_reservation = Reservation(
+    customer_id='b608b303-3a0d-42b9-af9d-089298f7d3c9',
+    payment_id='372e1ca3-485a-464a-9052-480e4f9c72ae',
+    num_of_guests=4
+)
+
+session.add(new_reservation)
 session.commit()
 session.close()
