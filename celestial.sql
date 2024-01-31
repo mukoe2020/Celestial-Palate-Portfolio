@@ -4,6 +4,8 @@
 -- ------------------------------------------------------
 -- Server version	8.0.24
 
+USE celestial;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -41,7 +43,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES ('2444b80e-506a-4994-8897-50bcc7f636f7','Habie','Doe','habie.doe@example.com','0224567890','2024-01-30 17:07:36','2024-01-30 17:07:36'),('2ad0b4ef-ef0d-496e-aa26-99944be6cff3','Astro','Doe','astro.doe@example.com','7724567890','2024-01-30 17:07:36','2024-01-30 17:07:36'),('b608b303-3a0d-42b9-af9d-089298f7d3c9','Memory','Doe','john.doe@example.com','1234567890','2024-01-30 16:48:54','2024-01-30 16:48:54'),('ecd647c5-7662-4631-80a4-d266ddf470b5','Manny','Quinn','mannyquinn@example.com','0334567890','2024-01-30 17:07:36','2024-01-30 17:07:36');
+INSERT INTO `customers` VALUES ('2444b80e-506a-4994-8897-50bcc7f636f7','Habie','Doe','habie.doe@example.com','0224567890','2024-01-30 17:07:36','2024-01-30 17:07:36'),('2ad0b4ef-ef0d-496e-aa26-99944be6cff3','Astro','Doe','astro.doe@example.com','7724567890','2024-01-30 17:07:36','2024-01-30 17:07:36'),('6bb7e87d-b68d-4f0c-a9c0-ad548f9226db','Amor','Quinn','amorquinn@example.com','0554567890','2024-01-30 21:51:02','2024-01-30 21:51:02'),('b608b303-3a0d-42b9-af9d-089298f7d3c9','Memory','Doe','john.doe@example.com','1234567890','2024-01-30 16:48:54','2024-01-30 16:48:54'),('ecd647c5-7662-4631-80a4-d266ddf470b5','Manny','Quinn','mannyquinn@example.com','0334567890','2024-01-30 17:07:36','2024-01-30 17:07:36');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +74,7 @@ CREATE TABLE `payments` (
 
 LOCK TABLES `payments` WRITE;
 /*!40000 ALTER TABLE `payments` DISABLE KEYS */;
-INSERT INTO `payments` VALUES ('372e1ca3-485a-464a-9052-480e4f9c72ae','b608b303-3a0d-42b9-af9d-089298f7d3c9',100,'incomplete','2024-01-30 18:06:36','2024-01-30 18:06:36'),('55000444-daa3-40d1-ac3a-5ee04abef10d','2444b80e-506a-4994-8897-50bcc7f636f7',100,'completed','2024-01-30 17:47:23','2024-01-30 17:47:23'),('55d0da22-1200-4f49-8305-1d096c87a841','2444b80e-506a-4994-8897-50bcc7f636f7',100,'completed','2024-01-30 17:20:51','2024-01-30 17:20:51'),('e8b1beee-e66f-475a-89e0-3a65d41b6639','ecd647c5-7662-4631-80a4-d266ddf470b5',100,'completed','2024-01-30 17:52:28','2024-01-30 17:52:28'),('ea0cfc93-d917-4f0e-8e4e-e143e39a7409','2ad0b4ef-ef0d-496e-aa26-99944be6cff3',50,'incomplete','2024-01-30 18:05:26','2024-01-30 18:05:26');
+INSERT INTO `payments` VALUES ('372e1ca3-485a-464a-9052-480e4f9c72ae','b608b303-3a0d-42b9-af9d-089298f7d3c9',100,'incomplete','2024-01-30 18:06:36','2024-01-30 18:06:36'),('55000444-daa3-40d1-ac3a-5ee04abef10d','2444b80e-506a-4994-8897-50bcc7f636f7',100,'completed','2024-01-30 17:47:23','2024-01-30 17:47:23'),('55d0da22-1200-4f49-8305-1d096c87a841','2444b80e-506a-4994-8897-50bcc7f636f7',100,'completed','2024-01-30 17:20:51','2024-01-30 17:20:51'),('d2fa05f0-1fea-4031-9801-80345ac85135','6bb7e87d-b68d-4f0c-a9c0-ad548f9226db',100,'complete','2024-01-30 21:55:28','2024-01-30 21:55:28'),('e8b1beee-e66f-475a-89e0-3a65d41b6639','ecd647c5-7662-4631-80a4-d266ddf470b5',100,'completed','2024-01-30 17:52:28','2024-01-30 17:52:28'),('ea0cfc93-d917-4f0e-8e4e-e143e39a7409','2ad0b4ef-ef0d-496e-aa26-99944be6cff3',50,'incomplete','2024-01-30 18:05:26','2024-01-30 18:05:26');
 /*!40000 ALTER TABLE `payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,4 +120,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-30 18:20:51
+-- Dump completed on 2024-01-31 13:15:19
