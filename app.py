@@ -7,7 +7,7 @@ from datab import Customer, Payment, Reservation, Base
 app = Flask(__name__)
 
 # Define the connection string to connect to the MySQL database
-connection_string = 'mysql+mysqlconnector://habiba:celestial@celestial'
+connection_string = 'mysql+mysqlconnector://root:celestial@localhost:3306/celestial'
 engine = create_engine(connection_string)
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
@@ -16,7 +16,7 @@ DBSession = sessionmaker(bind=engine)
 def get_customers():
     session = DBSession()
     customers = session.query(Customer).all()
-    customer_list = [{'id': c.id, 'first_name': c.first_name, 'last_name': c.last_name, 'email': c.email, 'phone_number': c.phone_number, 'created_at': c.created_at, 'updated_at': c.updated_at} 
+    customer_list = [{'id': c.id, 'first_name': c.first_name, 'last_name': c.last_name, 'email': c.email, 'phone_number': c.phone_number, 'created_at': c.created_at, 'updated_at': c.updated_at}
                     for c in customers]
     session.close()
     return jsonify(customers=customer_list)
@@ -37,4 +37,3 @@ def create_payment():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

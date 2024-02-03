@@ -5,7 +5,7 @@ from datetime import datetime
 import uuid
 
 Base = declarative_base()
- 
+
 
 def gen_uuid():
     return str(uuid.uuid4())
@@ -67,7 +67,7 @@ class Reservation(Base):
     payment = relationship('Payment', back_populates='reservation')
 
 
-connection_string = 'mysql+mysqlconnector://habiba:celestial@celestial'
+connection_string = 'mysql+mysqlconnector://habiba:babo@localhost/celestial'
 engine = create_engine(connection_string)
 Session = sessionmaker(bind=engine)
 Base.metadata.create_all(engine)
