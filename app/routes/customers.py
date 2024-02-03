@@ -82,21 +82,3 @@ def update_customer(customer_id):
             return jsonify(message="Customer not found"), 404
 
 
-
-
-
-
-
-@customers.route('/payments', methods=['POST'])
-def create_payment():
-    if request.method == 'POST':
-        session = DBSession()
-        # Assuming request contains customer_id, amount, and status
-        new_payment = Payment(customer_id=request.json['customer_id'], amount=request.json['amount'], status=request.json['status'],
-                              created_at=datetime.utcnow(), updated_at=datetime.utcnow())
-        session.add(new_payment)
-        session.commit()
-        session.close()
-        return jsonify(message="Payment created successfully")
-
-# Add more endpoints for other CRUD operations (e.g., creating reservations, updating customer details, etc.)

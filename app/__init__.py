@@ -1,6 +1,7 @@
 # app/__init__.py
 from flask import Flask
 from app.routes.customers import customers
+from app.routes.payments import payments
 
 def create_app():
     app = Flask(__name__)
@@ -9,8 +10,8 @@ def create_app():
     app.debug = True
 
     app.register_blueprint(customers, url_prefix='/customers')
+    app.register_blueprint(payments, url_prefix='/payments')
 
-    # ... other app setup code
 
     return app
 
