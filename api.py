@@ -1,25 +1,40 @@
+from flask import Flask, jsonify, request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from flask import Flask, jsonify
+from datetime import datetime
+from datab import Customer, Payment, Reservation, Base
 
 app = Flask(__name__)
 
-# Update the connection string with your Google Cloud SQL details
-connection_string = 'mysql+mysqlconnector://memory:celestial@host/celestial'
+# Define the connection string to connect to the MySQL database
+connection_string = 'mysql+mysqlconnector://habiba:celestial@celestial'
 engine = create_engine(connection_string)
-Session = sessionmaker(bind=engine)
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
 
-@app.route('/api/endpoint', methods=['GET'])
-def database_interaction_endpoint():
-    try:
-        # Start a database session
-        session = Session()
+@app.route('/customers', methods=['GET'])
+def get_customers():
+    session = DBSession()
+    customers = session.query(Customer).all()
+    customer_list = [{'id': c.id, 'first_name': c.first_name, 'last_name': c.last_name, 'email': c.email, 'phone_number': c.phone_number, 'created_at': c.created_at, 'updated_at': c.updated_at} 
+                    for c in customers]
+    session.close()
+    return jsonify(customers=customer_list)
 
-        # Perform database interactions here...
-        # Example: Fetch data from the database
-        result = session.execute('SELECT * FROM customer')
+@app.route('/payments', methods=['POST'])
+def create_payment():
+    if request.method == 'POST':
+        session = DBSession()
+        # Assuming request contains customer_id, amount, and status
+        new_payment = Payment(customer_id=request.json['customer_id'], amount=request.json['amount'], status=request.json['status'],
+                              created_at=datetime.utcnow(), updated_at=datetime.utcnow())
+        session.add(new_payment)
+        session.commit()
+        session.close()
+        return jsonify(message="Payment created successfully")
 
-        session.close()  # Close the database session
-        return jsonify({'result': [dict(row) for row in result]}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+# Add more endpoints for other CRUD operations (e.g., creating reservations, updating customer details, etc.)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
