@@ -2,7 +2,7 @@
 
 - Version: 1.156.0
 - Build: prod
-- Editor: vscode/1.85.1
+- Editor: vscode/1.86.0
 
 ## Environment
 
@@ -21,7 +21,7 @@
 
 ## Node setup
 
-- Number of root certificates: 140
+- Number of root certificates: 137
 - Operating system: Windows_NT
 - Operating system version: 10.0.19045
 - Operating system architecture: x64
