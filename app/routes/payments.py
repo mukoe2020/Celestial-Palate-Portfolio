@@ -9,13 +9,17 @@ app = Flask(__name__)
 
 payments = Blueprint('payments', __name__)
 
-@payments.route('/', methods=['POST'])
-def create_payment() -> Response:
+@payments.route('/customer_id',methods=['POST'])
+def create_payment(customer_id):
     if request.method == 'POST':
         session = DBSession()
-        # Assuming request contains customer_id, amount, and status
-        new_payment = Payment(customer_id=request.json['customer_id'], amount=request.json['amount'], status=request.json['status'],
-                              created_at=datetime.utcnow(), updated_at=datetime.utcnow())
+        new_payment = Payment(
+            customer_id=customer_id,
+            amount=request.json['amount'],
+            status=request.json['status'],
+            created_at=datetime.utcnow(),
+            updated_at=datetime.utcnow()
+        )
         session.add(new_payment)
         session.commit()
         session.close()
