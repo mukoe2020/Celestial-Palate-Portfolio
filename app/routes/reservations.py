@@ -8,9 +8,9 @@ from datab import Customer, Payment, Reservation, Base
 
 app = Flask(__name__)
 
-reservation = Blueprint('reservation', __name__)
+reservations = Blueprint('reservations', __name__)
 
-@reservation.route('/customer_id',methods=['POST'])
+@reservations.route('/customer_id', methods=['POST'])
 def create_reservation(customer_id):
     if request.method == 'POST':
         session = DBSession()
@@ -27,7 +27,7 @@ def create_reservation(customer_id):
         return jsonify(message="Reservation created successfully")
 
 
-@reservation.route('/<reservation_id>', methods=['GET'])
+@reservations.route('/<reservation_id>', methods=['GET'])
 def get_reservation(reservation_id):
     session = DBSession()
     reservation = session.query(Reservation).filter_by(id=reservation_id).first()
@@ -39,7 +39,7 @@ def get_reservation(reservation_id):
 
 
 
-@reservation.route('/<reservation_id>', methods=['DELETE'])
+@reservations.route('/<reservation_id>', methods=['DELETE'])
 def delete_reservation(reservation_id):
     session = DBSession()
     reservation = session.query(Reservation).filter_by(id=reservation_id).first()
@@ -52,7 +52,7 @@ def delete_reservation(reservation_id):
         session.close()
         return jsonify(message="Reservation not found"), 404
 
-@reservation.route('/<reservation_id>', methods=['PUT'])
+@reservations.route('/<reservation_id>', methods=['PUT'])
 def update_reservation(reservation_id):
     session = DBSession()
     reservation = session.query(Reservation).filter_by(id=reservation_id).first()
@@ -65,4 +65,3 @@ def update_reservation(reservation_id):
     else:
         session.close()
         return jsonify(message="Reservation not found"), 404
- 
