@@ -57,3 +57,4 @@ def update_reservation(reservation_id):
     else:
         session.close()
         return jsonify(message="Reservation not found"), 404
+ 
