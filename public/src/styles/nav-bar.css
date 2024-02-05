@@ -1,6 +1,6 @@
 :root {
       --default-color : white;
-      --primary-color : #9d7d34;
+      --primary-color : #ddab38;
 }
 
 
@@ -78,6 +78,7 @@ nav ul {
       margin: 0;
       padding-right: 40px;
       transition: 1s;
+      font-family: 'Roboto', sans-serif;
 }
 
 nav.black ul {
@@ -91,13 +92,22 @@ nav ul li {
 
 nav ul li a {
       text-decoration: none;
-      color: #E7BF63;
-      font-size: 25px;
+      color: var(--primary-color);
+      font-size: 20px;
+      font-weight: normal;
 }
 
 nav ul li a:hover {
     color: antiquewhite;
+    transition: all 100ms ease-in-out;
+    text-decoration: none;
 
+}
+
+nav ul li.active a{
+      color: antiquewhite;
+      transition: all 100ms ease-in-out;
+      text-decoration:overline;
 }
 
 .menu-icon {
@@ -114,13 +124,41 @@ nav ul li a:hover {
 
 
 h1.text-center,
-h2.text-center {
+h2.text-center,
+h3.text-center {
       color: var(--primary-color);
 }
 
 h1.text-center {
       font-size: 3.5em;
 }
+
+h2.text-center {
+      font-size: 2.5em;
+}
+
+.loading-text {
+   opacity: 0; /* Set initial opacity to 0 */
+   animation: fadeIn 3s ease-in-out forwards; /* Use a fade-in animation with a duration of 2 seconds */
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 786px) {
 
