@@ -48,18 +48,19 @@ def get_payment(payment_id):
         return jsonify(payment=payment_info)
     else:
         return jsonify(message="Payment not found"), 404
-
-
+      
 @payments.route('/<string:customer_id>/payments', methods=['POST'])
 def create_payment(customer_id):
     if request.method == 'POST':
         session = DBSession()
-
         customer = session.query(Customer).filter_by(id=customer_id).first()
         if not customer:
             session.close()
             return jsonify(message=f"Customer with id {customer_id} not found"), 404
-
+        new_payment = Payment(
+            customer_id=customer_id,
+            amount=request.json['amount'] if request.json and 'amount' in request.json else None,
+            status=request.json['status'] if request.json and 'status' in request.json else 'pending',
         if not request.json or 'amount' not in request.json or 'status' not in request.json:
             session.close()
             return jsonify(message="Invalid JSON data"), 400
@@ -74,10 +75,12 @@ def create_payment(customer_id):
         session.add(new_payment)
         session.commit()
         session.close()
+        return jsonify(message="Payment created successfully")
+
+
+
 
         return jsonify(message="Payment created successfully"), 201
-
-
 
 @payments.route('/<payment_id>', methods=['PUT'])
 def update_payment(payment_id):

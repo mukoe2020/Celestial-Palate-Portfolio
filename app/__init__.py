@@ -12,11 +12,9 @@ def create_app():
 
     app.register_blueprint(customers, url_prefix='/customers')
     app.register_blueprint(payments, url_prefix='/payments')
-    app.register_blueprint(reservations, url_prefix='/reservations')
-
+    app.register_blueprint(reservations, url_prefix='/reservations'
 
     return app
-
 
 if __name__ == "__main__":
     app = create_app()

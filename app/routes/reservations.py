@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, jsonify, request, Blueprint
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,7 +9,6 @@ from datab import Reservation, Base
 app = Flask(__name__)
 
 reservations = Blueprint('reservations', __name__)
-
 
 @reservations.route('/', methods=['GET'])
 def all_reservations():
@@ -40,7 +40,6 @@ def get_reservation(reservation_id):
         return jsonify(message="Reservation not found"), 404
 
 
-
 @reservations.route('/<customer_id>/<payment_id>', methods=['POST'])
 def create_reservation(customer_id, payment_id):
     if request.method == 'POST':
@@ -56,7 +55,6 @@ def create_reservation(customer_id, payment_id):
         session.commit()
         session.close()
         return jsonify(message="Reservation created successfully")
-
 
 
 @reservations.route('/<reservation_id>', methods=['PUT'])
