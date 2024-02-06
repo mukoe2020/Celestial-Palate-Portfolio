@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, joinedload
 from datetime import datetime
 from app.database import DBSession
-from datab import Customer, Payment, Reservation, Base
+from datab import Payment, Base, Customer
 
 app = Flask(__name__)
 
@@ -13,7 +13,8 @@ payments = Blueprint('payments', __name__)
 @payments.route('/', methods=['GET'])
 def all_payments():
     session = DBSession()
-    payments = session.query(Payment).options(joinedload(Payment.customer)).all()
+    payments = session.query(Payment).options(
+        joinedload(Payment.customer)).all()
     payment_list = [
         {
             'id': p.id,
@@ -47,23 +48,27 @@ def get_payment(payment_id):
         return jsonify(payment=payment_info)
     else:
         return jsonify(message="Payment not found"), 404
-
-
-@payments.route('/<customer_id>/payments', methods=['POST']) # type: ignore
+      
+@payments.route('/<string:customer_id>/payments', methods=['POST'])
 def create_payment(customer_id):
     if request.method == 'POST':
         session = DBSession()
-
-        # Ensure the customer exists before creating a payment
         customer = session.query(Customer).filter_by(id=customer_id).first()
         if not customer:
             session.close()
             return jsonify(message=f"Customer with id {customer_id} not found"), 404
-
         new_payment = Payment(
             customer_id=customer_id,
             amount=request.json['amount'] if request.json and 'amount' in request.json else None,
             status=request.json['status'] if request.json and 'status' in request.json else 'pending',
+        if not request.json or 'amount' not in request.json or 'status' not in request.json:
+            session.close()
+            return jsonify(message="Invalid JSON data"), 400
+
+        new_payment = Payment(
+            customer_id=customer_id,
+            amount=request.json['amount'],
+            status=request.json['status'],
             created_at=datetime.utcnow(),
             updated_at=datetime.utcnow()
         )
@@ -75,7 +80,8 @@ def create_payment(customer_id):
 
 
 
-"""
+        return jsonify(message="Payment created successfully"), 201
+
 @payments.route('/<payment_id>', methods=['PUT'])
 def update_payment(payment_id):
     session = DBSession()
@@ -91,4 +97,3 @@ def update_payment(payment_id):
     else:
         session.close()
         return jsonify(message="Payment not found"), 404
-"""
