@@ -12,5 +12,7 @@
     "Salisu",
     "sqlalchemy",
     "uselist"
-  ]
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true
 }

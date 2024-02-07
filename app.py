@@ -22,7 +22,7 @@ def get_customers():
     return jsonify(customers=customer_list)
 
 @app.route('/payments', methods=['POST'])
-def create_payment():
+def create_payment() -> Response:
     if request.method == 'POST':
         session = DBSession()
         # Assuming request contains customer_id, amount, and status
@@ -32,8 +32,19 @@ def create_payment():
         session.commit()
         session.close()
         return jsonify(message="Payment created successfully")
+    
+@app.route('/reservations', methods=['POST'])
+def create_reservation() -> Response:
+    if request.method == 'POST':
+        session = DBSession()
+        # Assuming request contains customer_id, payment_id, and num_of_guests
+        new_reservation = Reservation(customer_id=request.json['customer_id'], payment_id=request.json['payment_id'], num_of_guests=request.json['num_of_guests'],
+                                      created_at=datetime.utcnow(), updated_at=datetime.utcnow())
+        session.add(new_reservation)
+        session.commit()
+        session.close()
+        return jsonify(message="Reservation created successfully")
 
-# Add more endpoints for other CRUD operations (e.g., creating reservations, updating customer details, etc.)
 
 if __name__ == '__main__':
     app.run(debug=True)
