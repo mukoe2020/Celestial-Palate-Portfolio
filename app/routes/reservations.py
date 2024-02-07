@@ -109,21 +109,31 @@ def get_reservation(reservation_id):
         return jsonify(message="Reservation not found"), 404
 
 
-@reservations.route('/<customer_id>/<payment_id>', methods=['POST'])
+@reservations.route('/<customer_id>/<payment_id>', methods=['POST']) #type: ignore
 def create_reservation(customer_id, payment_id):
     if request.method == 'POST':
         session = DBSession()
         new_reservation = Reservation(
             customer_id=customer_id,
             payment_id=payment_id,
-            num_of_guests=request.json['num_of_guests'],
+            num_of_guests=request.json['num_of_guests'], #type: ignore
             created_at=datetime.utcnow(),
             updated_at=datetime.utcnow()
         )
         session.add(new_reservation)
         session.commit()
+
+        reservation_data = {
+            'id': new_reservation.id,
+            'customer_id': new_reservation.customer_id,
+            'payment_id': new_reservation.payment_id,
+            'num_of_guests': new_reservation.num_of_guests,
+            'created_at': new_reservation.created_at,
+            'updated_at': new_reservation.updated_at
+        }
+
         session.close()
-        return jsonify(message="Reservation created successfully")
+        return jsonify(reservation_data), 201
 
 
 @reservations.route('/<reservation_id>', methods=['PUT'])
@@ -132,12 +142,21 @@ def update_reservation(reservation_id):
     reservation = session.query(Reservation).filter_by(
         id=reservation_id).first()
     if reservation:
-        reservation.num_of_guests = request.json['num_of_guests']
-        reservation.updated_at = datetime.utcnow()
+        if request.json is not None:
+            reservation.num_of_guests = request.json['num_of_guests']
+        reservation.updated_at = datetime.utcnow() #type: ignore
         session.commit()
+
+        new_reservation = {
+            'id': reservation.id,
+            'customer_id': reservation.customer_id,
+            'payment_id': reservation.payment_id,
+            'num_of_guests': reservation.num_of_guests,
+            'created_at': reservation.created_at,
+            'updated_at': reservation.updated_at
+        }
         session.close()
-        return jsonify(message="Reservation updated successfully")
+        return jsonify(new_reservation)
     else:
-        session.close()
         return jsonify(message="Reservation not found"), 404
 >>>>>>> master

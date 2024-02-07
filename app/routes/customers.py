@@ -61,8 +61,17 @@ def create_customer():
             )
             session.add(new_customer)
             session.commit()
+            customer_data = {
+                'id': new_customer.id,
+                'first_name': new_customer.first_name,
+                'last_name': new_customer.last_name,
+                'email': new_customer.email,
+                'phone_number': new_customer.phone_number,
+                'created_at': new_customer.created_at,
+                'updated_at': new_customer.updated_at
+            }
             session.close()
-            return jsonify(message="Customer created successfully")
+            return jsonify(customer_data), 201
         else:
             return jsonify(message="Invalid request"), 400
 
