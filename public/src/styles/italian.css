@@ -2,9 +2,6 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Prevents scrollbars */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
 }
 
@@ -32,16 +29,11 @@ body {
 
 .menu-text {
     color:#ddab38;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
-    z-index: 1; /* Ensures the text is above the background */
-    position: absolute;
-    top: 30px; /* Adjust the top position as needed */
-    left: 50%;
-    transform: translateX(-50%);
     font-family: 'Lobster', sans-serif;
-    letter-spacing: 5px;
+    margin-top: 100px;
 }
 
 .menu-image {
@@ -52,4 +44,14 @@ body {
     top: 0;
     left: 0;
     z-index: -1; /* Places the background behind the logo */
+}
+
+.container h1 {
+    color:#ddab38;
+    font-size: 30px;
+}
+
+.container h2 {
+    color:#ddab38;
+    font-size: 30px;
 }
