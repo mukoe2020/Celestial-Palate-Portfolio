@@ -130,8 +130,24 @@ div.submit {
     text-align: center;
 }
 
-button.btn btn-warning.mt-3 {
-    padding: 15px 60px;
+div.submit button {
+    background-color: var(--primary-color);
+    color: var(--default-color);
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+div.submit button:hover {
+    background-color: #ff8c00;
+    color: black;
+    transition: all 100ms ease-in-out;
 }
 
 

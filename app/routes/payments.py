@@ -48,8 +48,8 @@ def get_payment(payment_id):
         return jsonify(payment=payment_info)
     else:
         return jsonify(message="Payment not found"), 404
-      
-@payments.route('/<string:customer_id>/payments', methods=['POST'])
+
+@payments.route('/<string:customer_id>/payments', methods=['POST']) # type: ignore
 def create_payment(customer_id):
     if request.method == 'POST':
         session = DBSession()
@@ -57,30 +57,37 @@ def create_payment(customer_id):
         if not customer:
             session.close()
             return jsonify(message=f"Customer with id {customer_id} not found"), 404
-        new_payment = Payment(
-            customer_id=customer_id,
-            amount=request.json['amount'] if request.json and 'amount' in request.json else None,
-            status=request.json['status'] if request.json and 'status' in request.json else 'pending',
-        if not request.json or 'amount' not in request.json or 'status' not in request.json:
-            session.close()
-            return jsonify(message="Invalid JSON data"), 400
+
+        amount = request.json.get('amount') if request.json else None
+        status = 'completed' if amount == 100 else 'pending'
 
         new_payment = Payment(
             customer_id=customer_id,
-            amount=request.json['amount'],
-            status=request.json['status'],
+            amount=amount,
+            status=status,
             created_at=datetime.utcnow(),
             updated_at=datetime.utcnow()
         )
+        if amount != 100:
+            setattr(new_payment, 'status', 'pending')
+
         session.add(new_payment)
         session.commit()
+
+        payment_data = {
+            'id': new_payment.id,
+            'customer_id': new_payment.customer_id,
+            'amount': new_payment.amount,
+            'status': new_payment.status,
+            'created_at': new_payment.created_at,
+            'updated_at': new_payment.updated_at
+        }
+
+
+
         session.close()
-        return jsonify(message="Payment created successfully")
+        return jsonify(payment_data), 201
 
-
-
-
-        return jsonify(message="Payment created successfully"), 201
 
 @payments.route('/<payment_id>', methods=['PUT'])
 def update_payment(payment_id):
