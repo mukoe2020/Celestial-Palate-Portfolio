@@ -128,21 +128,4 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
     });
-
-
-
-
-
-
-
-
-        /*
-
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    }); */
 });
