@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Selecting form, and preventing its default behavior when submitted
     let form = document.querySelector('form');
     form.addEventListener('submit', function(event) {
-        alert('Your reservation has been made!');
-        event.preventDefault();
+      event.preventDefault();
+    let message = document.querySelector('#for-message');
+
+
 
 
     // Selecting and assigning values to variables for each input field
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 console.log('Success:', data);
+                message.innerHTML = 'Your reservation has been made!';
             })
         })
     })

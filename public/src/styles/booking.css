@@ -14,7 +14,8 @@ html, body {
 
 body.custom-body {
       font-weight: lighter;
-      font-family: 'Lobster', sans-serif;
+      font-family: 'Dosis', sans-serif;
+      background: linear-gradient(109.6deg, rgb(4, 5, 5) 11.2%, rgb(7, 8, 9) 51.2%, rgb(10, 9, 9) 98.6%);
 }
 
 header {
@@ -74,7 +75,7 @@ nav.black ul {
 
 nav ul li {
       display: inline-block;
-      padding: 16px 40px;
+      padding: 15px 30px;
 }
 
 nav ul li a {
@@ -152,14 +153,54 @@ div.submit button:hover {
 
 
 
+h4.mt-4.text-center {
+    color: var(--primary-color);
+    font-weight: 200;
+}
 
 
+p {
+      color: #a9a394;
+      text-align: center;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 200;
+      line-height: 1.5;
+      font-size: 1em;
+}
+
+p a {
+      color: #a9a394;
+      text-decoration: none;
+}
+
+p a:hover {
+      color: #131E24;
+      text-decoration: none;
+      transition: all 100ms ease-in-out;
+}
+
+p.text-center.mt-3 {
+      color: #334046;
+
+}
+
+.social-media a {
+    margin: 0 20px;
+    color: #a9a394;
+    background: var(--secondary-color);
+    font-size: 18px;
+    padding: 10px 14px;
+    border-radius: 50%;
+}
+
+.social-media a:hover {
+    color: #fff;
+    background: var(--primary-color);
+    transition: all 100ms ease-in-out;
+}
 
 
-
-
-
-@media only screen and (max-width: 786px) {
+@media only screen and (max-width: 770px) {
 
       .logo {
             line-height: 60px;
@@ -173,7 +214,7 @@ div.submit button:hover {
 
       nav ul {
             max-height: 0px;
-            background: #000;
+            background: rgb(54, 53, 52);
       }
 
       nav.black ul {
@@ -187,7 +228,7 @@ div.submit button:hover {
       nav ul li {
             box-sizing: border-box;
             width: 100%;
-            padding: 24px;
+            padding: 15px;
             text-align: center;
       }
 
