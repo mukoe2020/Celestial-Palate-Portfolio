@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, Blueprint
+from flask_cors import cross_origin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
@@ -45,8 +46,8 @@ def delete_customer(customer_id):
         session.close()
         return jsonify(message="Customer not found"), 404
 
-
-@customers.route('/', methods=['POST']) # type: ignore
+@cross_origin()
+@customers.route('/', methods=['POST', 'OPTIONS']) # type: ignore
 def create_customer():
     if request.method == 'POST':
         session = DBSession()

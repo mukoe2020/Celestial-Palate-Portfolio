@@ -1,5 +1,6 @@
 from crypt import methods
-from flask import Flask, jsonify, request, Blueprint
+from flask import Flask, jsonify, make_response, request, Blueprint
+from flask_cors import cross_origin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
@@ -39,8 +40,8 @@ def get_reservation(reservation_id):
     else:
         return jsonify(message="Reservation not found"), 404
 
-
-@reservations.route('/<customer_id>/<payment_id>', methods=['POST']) #type: ignore
+@cross_origin()
+@reservations.route('/<customer_id>/<payment_id>/reservations', methods=['POST', 'OPTIONS']) #type: ignore
 def create_reservation(customer_id, payment_id):
     if request.method == 'POST':
         session = DBSession()
@@ -65,7 +66,12 @@ def create_reservation(customer_id, payment_id):
 
         session.close()
         return jsonify(reservation_data), 201
-
+    elif request.method == 'OPTIONS':
+        # Handle preflight request
+        response = make_response()
+        response.headers.add("Access-Control-Allow-Methods", "POST")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+        return response, 200
 
 @reservations.route('/<reservation_id>', methods=['PUT'])
 def update_reservation(reservation_id):
