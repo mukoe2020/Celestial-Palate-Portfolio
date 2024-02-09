@@ -132,6 +132,22 @@ a.nav-link.dropdown-toggle:hover {
       color: #fff;
       display: none;
 }
+
+
+h1.text-center,
+h2.text-center,
+h3.text-center {
+      color: var(--primary-color);
+}
+
+h1.text-center {
+      font-size: 3.5em;
+}
+
+h2.text-center {
+      font-size: 2.5em;
+}
+
 .loading-text {
    opacity: 0; /* Set initial opacity to 0 */
    animation: fadeIn 3s ease-in-out forwards; /* Use a fade-in animation with a duration of 2 seconds */
@@ -145,6 +161,10 @@ a.nav-link.dropdown-toggle:hover {
       opacity: 1;
    }
 }
+
+
+
+
 
 
 @media only screen and (max-width: 786px) {
