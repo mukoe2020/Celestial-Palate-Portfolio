@@ -9,11 +9,12 @@
 }
 .menu-text {
   color:#ddab38;
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+  font-weight: lighter;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  margin-top: 100px;
+  font-family:'Dosis', sans-serif;
+  margin-top: 20px;
 }
 :root {
   --default-color : white;
@@ -31,7 +32,7 @@ html, body {
 
 body.custom-body {
   font-weight: lighter;
-  background: #000;
+  background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
 }
 .content {
   width: 94%;
