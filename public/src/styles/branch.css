@@ -17,9 +17,11 @@
   font-weight: lighter;
   text-align: center;
   font-family:'Dosis', sans-serif;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
+  text-decoration: underline;
 }
+
 :root {
   --default-color : white;
   --primary-color : #ddab38;
