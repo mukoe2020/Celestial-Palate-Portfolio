@@ -5,7 +5,10 @@
   font-size: 20px;
   font-weight: bold;
   font-style: initial;
-  font-stretch: expanded;
+  display: block; /* Change the display to block to allow centering */
+  margin: 0 auto; /* Auto margin horizontally centers the block element */
+  width: fit-content; /* Adjust width to fit the content */
+  text-align: center; /* Center the text horizontally */
 }
 .menu-text {
   color:#ddab38;
@@ -15,6 +18,7 @@
   text-align: center;
   font-family:'Dosis', sans-serif;
   margin-top: 20px;
+  text-align: center;
 }
 :root {
   --default-color : white;
