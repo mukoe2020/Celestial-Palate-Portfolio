@@ -32,7 +32,7 @@ header {
         background-image: url('../images/african2.jpg');
     }
     66.66% {
-        background-image: url('../images/japanese.jpg');
+        background-image: url('../images/jap1.jpeg');
     }
 }
 
@@ -77,6 +77,7 @@ nav ul {
       padding-right: 40px;
       transition: 1s;
       font-family: 'Roboto', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 nav.black ul {
@@ -139,12 +140,10 @@ h3.text-center {
 
 h1.text-center {
       font-size: 3.5em;
-      box-shadow: 0 0 4px 1px black;
 }
 
 h2.text-center {
       font-size: 2.5em;
-
 }
 
 .loading-text {
@@ -224,29 +223,34 @@ h3.dangling {
 }
 
 
-div.about {
-      width: 100%;
-      height: 100vh;
-}
 
 h2.text-center.about {
       font-size: 15px;
       color: #a9a394;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
 h3.text-center.about {
       color: #a9a394;
       font-size: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 }
 
 p.text-center.about {
-      color: #8e773d;
-      font-size: 35px;
+      color: #ac914c;
+      font-size: 30px;
       line-height: 1.5;
-      font-family: 'Dosis', sans-serif;
+      font-family: 'Bitter', serif;
       font-weight: lighter;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1.heading {
+        color: #a9a394;
+        font-size: 35px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 }
 
