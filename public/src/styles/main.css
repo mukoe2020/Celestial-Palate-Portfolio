@@ -11,11 +11,9 @@ html, body {
 }
 
 body.custom-body {
-    font-weight: lighter;
-    font-family: 'Lobster', sans-serif;
-    background: linear-gradient(109.6deg, rgb(36, 39, 26) 11.2%, rgb(27, 28, 30) 51.2%, rgb(76, 77, 48) 98.6%);
-
-    color: var(--primary-color);
+      font-weight: lighter;
+      font-family: 'Lobster', sans-serif;
+      background: linear-gradient(109.6deg, rgb(36, 39, 26) 11.2%, rgb(27, 28, 30) 51.2%, rgb(76, 77, 48) 98.6%);
 }
 
 header {
