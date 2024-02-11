@@ -8,7 +8,9 @@
   margin: 0 auto; /* Auto margin horizontally centers the block element */
   width: fit-content; /* Adjust width to fit the content */
   text-align: center; /* Center the text horizontally */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .menu-text {
   color:#ddab38;
   font-size: 30px;
@@ -19,6 +21,7 @@
   margin-top: 10px;
   text-align: center;
   text-decoration: underline;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 :root {
@@ -122,6 +125,23 @@ a.nav-link.dropdown-toggle:hover {
   transition: all 100ms ease-in-out;
   text-decoration: none;
 }
+
+.dropdown-menu.show {
+        background-color: rgb(12, 11, 10);
+        padding: 0;
+}
+
+a.dropdown-item {
+    color: #987b3c;
+    padding: 3px 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+a.dropdown-item:hover {
+    color: #caa852;
+    transition: all 100ms ease-in-out;
+}
+
 .menu-icon {
   line-height: 60px;
   width: 100%;
@@ -133,6 +153,64 @@ a.nav-link.dropdown-toggle:hover {
   color: #fff;
   display: none;
 }
+
+footer {
+    background-color: #000;
+    padding: 20px 0;
+}
+
+
+h4.mt-4.text-center {
+    color: var(--primary-color);
+    font-weight: 200;
+}
+
+
+p {
+      color: #a9a394;
+      text-align: center;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 200;
+      line-height: 1.5;
+      font-size: 1em;
+}
+
+p a {
+      color: #a9a394;
+      text-decoration: none;
+}
+
+p a:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: all 100ms ease-in-out;
+}
+
+p.text-center.mt-3 {
+      color: #a9a394;
+
+}
+
+.social-media a {
+    margin: 0 20px;
+    color: #a9a394;
+    background: var(--secondary-color);
+    font-size: 18px;
+    padding: 10px 14px;
+    border-radius: 50%;
+}
+
+.social-media a:hover {
+    color: #fff;
+    background: var(--primary-color);
+    transition: all 100ms ease-in-out;
+}
+
+div.container {
+  margin-bottom: 150px;
+}
+
+
 @media only screen and (max-width: 786px) {
 
   .logo {
