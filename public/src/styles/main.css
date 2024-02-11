@@ -309,10 +309,7 @@ div.col-md-6 ul li {
 
 
 footer {
-    bottom: 0;
-    width: 100%;
     background-color: #000;
-    z-index: 100;
     padding: 20px 0;
 }
 
