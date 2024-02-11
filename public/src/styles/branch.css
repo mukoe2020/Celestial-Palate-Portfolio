@@ -1,20 +1,26 @@
-
 .menu-item{
   color: #9d7d34;
   list-style: none;
   font-size: 20px;
   font-weight: bold;
   font-style: initial;
-  font-stretch: expanded;
+  display: block; /* Change the display to block to allow centering */
+  margin: 0 auto; /* Auto margin horizontally centers the block element */
+  width: fit-content; /* Adjust width to fit the content */
+  text-align: center; /* Center the text horizontally */
 }
 .menu-text {
   color:#ddab38;
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+  font-weight: lighter;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  margin-top: 100px;
+  font-family:'Dosis', sans-serif;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: underline;
 }
+
 :root {
   --default-color : white;
   --primary-color : #ddab38;
@@ -31,7 +37,7 @@ html, body {
 
 body.custom-body {
   font-weight: lighter;
-  background: #000;
+  background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
 }
 .content {
   width: 94%;
