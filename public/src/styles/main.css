@@ -115,11 +115,28 @@ nav ul li a.nav-link.dropdown-toggle {
       font-weight: normal;
 }
 
+.dropdown-menu.show {
+        background-color: rgb(12, 11, 10);
+        padding: 0;
+}
+
+a.dropdown-item {
+    color: #987b3c;
+    padding: 3px 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+a.dropdown-item:hover {
+    color: #caa852;
+    transition: all 100ms ease-in-out;
+}
+
 a.nav-link.dropdown-toggle:hover {
-      color: antiquewhite;
+      color: rgb(231, 150, 44);
       transition: all 100ms ease-in-out;
       text-decoration: none;
 }
+
 .menu-icon {
       line-height: 60px;
       width: 100%;
@@ -251,8 +268,101 @@ h1.heading {
         color: #a9a394;
         font-size: 35px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-decoration-line: underline;
 
 }
+
+div.col-md-6 ul {
+        list-style-type: none;
+        padding: 0;
+}
+
+div.col-md-6 ul li {
+        padding: 10px;
+        font-size: 20px;
+        color: #ac914c;
+        font-family: 'Bitter', serif;
+        font-weight: 300%;
+}
+
+.button {
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 150px;
+
+}
+
+
+.btn.branding {
+    color: white;
+    background-color: #a4822a;
+    padding: 11px 21px;
+    font-family: 'Bitter', serif;
+    border-radius: none;
+}
+
+.btn.branding:hover {
+    color: #a4822a;
+    background-color: rgb(233, 233, 215);
+    transition: all 0.3s ease-in-out;
+}
+
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 100;
+    padding: 20px 0;
+}
+
+
+h4.mt-4.text-center {
+    color: var(--primary-color);
+    font-weight: 200;
+}
+
+
+p {
+      color: #a9a394;
+      text-align: center;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 200;
+      line-height: 1.5;
+      font-size: 1em;
+}
+
+p a {
+      color: #a9a394;
+      text-decoration: none;
+}
+
+p a:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: all 100ms ease-in-out;
+}
+
+p.text-center.mt-3 {
+      color: #a9a394;
+
+}
+
+.social-media a {
+    margin: 0 20px;
+    color: #a9a394;
+    background: var(--secondary-color);
+    font-size: 18px;
+    padding: 10px 14px;
+    border-radius: 50%;
+}
+
+.social-media a:hover {
+    color: #fff;
+    background: var(--primary-color);
+    transition: all 100ms ease-in-out;
+}
+
 
 @media only screen and (max-width: 786px) {
 
