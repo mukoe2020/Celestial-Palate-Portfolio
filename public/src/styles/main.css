@@ -359,7 +359,7 @@ p.text-center.mt-3 {
 @media only screen and (max-width: 900px) {
 
     header {
-        height: 160vh;
+        height: 170vh;
     }
 
 
@@ -437,6 +437,5 @@ p.text-center.mt-3 {
 
       h3.dangling {
         font-size: 15px;
-        margin-left: 100px;
       }
 }
