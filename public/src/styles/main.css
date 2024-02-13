@@ -434,4 +434,9 @@ p.text-center.mt-3 {
       div.col-md-6 ul li {
         font-size: 15px;
       }
+
+      h3.dangling {
+        font-size: 15px;
+        margin-left: 100px;
+      }
 }
