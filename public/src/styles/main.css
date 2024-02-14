@@ -290,7 +290,7 @@ div.col-md-6 ul li {
 .button {
     margin-top: 5px;
     text-align: center;
-    margin-bottom: 150px;
+    margin-bottom: 90px;
 
 }
 
@@ -370,8 +370,8 @@ p.text-center.mt-3 {
     }
 
 
-      .logo {
-            float: left;
+      div.logo {
+            display: inline-flex;
             color: #fff;
             font-weight: bold;
             font-size: 20px;
@@ -380,10 +380,13 @@ p.text-center.mt-3 {
             margin-left: 0px;
             margin-bottom: 0px;
             margin-right: 0px;
+            justify-content: center;
+            border: 2px solid #a4822a;
+            border-radius: 4px;
     }
 
     .logo-img {
-        max-width: 55px;
+        max-width: 50px;
     }
 
 
