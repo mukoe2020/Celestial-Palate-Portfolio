@@ -7,7 +7,7 @@
   display: block; /* Change the display to block to allow centering */
   margin: 0 auto; /* Auto margin horizontally centers the block element */
   width: fit-content; /* Adjust width to fit the content */
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .menu-text {
