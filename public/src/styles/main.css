@@ -75,7 +75,7 @@ nav ul {
 }
 
 nav.black ul {
-      background: none;
+      background: transparent;
 }
 
 nav ul li {
@@ -235,7 +235,7 @@ h3.dangling {
 }
 
 img.img-fluid.rounded {
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out;
 }
 
 img.img-fluid.rounded:hover {
@@ -394,7 +394,7 @@ p.text-center.mt-3 {
       }
 
       nav.black ul {
-            background:rgba(255, 255, 255, 0.8);
+            background: black;
       }
 
       .showing {
