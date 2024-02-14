@@ -127,6 +127,16 @@ a.nav-link.dropdown-toggle:hover {
     text-align: center;
 }
 
+input.form-control {
+      padding: 10px;
+      margin: 0px auto;
+}
+
+form {
+      width: 60%;
+      margin: 0px auto;
+}
+
 div.submit {
     text-align: center;
 }
@@ -135,14 +145,14 @@ div.submit button {
     background-color: var(--primary-color);
     color: var(--default-color);
     border: none;
-    padding: 15px 30px;
+    padding: 10px 35px 10px 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 div.submit button:hover {
