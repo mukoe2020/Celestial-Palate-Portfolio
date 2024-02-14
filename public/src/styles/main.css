@@ -367,7 +367,7 @@ p.text-center.mt-3 {
 @media only screen and (max-width: 900px) {
 
     header {
-        height: 160vh;
+        height: 155vh;
     }
 
 
@@ -432,6 +432,8 @@ p.text-center.mt-3 {
       h1.text-center {
             font-size: 2em;
             text-align: center !important;
+            margin-top: 15px;
+            margin-bottom: 20px
       }
 
       h2.text-center {
@@ -439,7 +441,7 @@ p.text-center.mt-3 {
       }
 
       div.container {
-        margin-top: 60px;
+        margin-top: 55px;
       }
 
       div.review p, h3 {
@@ -450,6 +452,11 @@ p.text-center.mt-3 {
       p.text-center.about {
         font-size: 18px;
 
+      }
+
+      div.col-md-4 {
+        width: 95%;
+        margin: 0 auto;
       }
 
       div.col-md-6 ul li {
