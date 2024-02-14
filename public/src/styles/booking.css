@@ -200,21 +200,17 @@ p.text-center.mt-3 {
 }
 
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
 
-      .logo {
-            line-height: 60px;
-            float: left;
-            margin: 16px 46px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 20px;
-            letter-spacing: 2px;
+          .logo {
+            display: none;
     }
+
+
 
       nav ul {
             max-height: 0px;
-            background: rgb(54, 53, 52);
+            background: #000;
       }
 
       nav.black ul {
@@ -222,7 +218,12 @@ p.text-center.mt-3 {
       }
 
       .showing {
-            max-height: 34em;
+            max-height: 400px;
+            padding: 5px;
+      }
+
+      .showing li {
+        padding: 3px;
       }
 
       nav ul li {
@@ -232,14 +233,16 @@ p.text-center.mt-3 {
             text-align: center;
       }
 
-      .menu-icon {
+      div.menu-icon {
             display: block;
-            line-height: 60px;
             width: 100%;
             text-align: right;
             box-sizing: border-box;
-            padding: 15px 24px;
             cursor: pointer;
-            color: #fff;
+            color: antiquewhite;
+            padding: 5px;
+            background-color: transparent;
+
       }
+
 }
