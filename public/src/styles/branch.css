@@ -7,7 +7,6 @@
   display: block; /* Change the display to block to allow centering */
   margin: 0 auto; /* Auto margin horizontally centers the block element */
   width: fit-content; /* Adjust width to fit the content */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: 'Lobster', sans-serif;
 }
 
@@ -177,6 +176,7 @@ div.container ul li {
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  line-height: 2;
 }
 
 footer {
