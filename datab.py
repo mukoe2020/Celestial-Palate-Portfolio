@@ -23,10 +23,10 @@ class Customer(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """ one to many relation between a customer and his/her payments"""
-    payments = relationship('Payment', back_populates='customer')
+    payments = relationship('Payment', back_populates='customer'cascade='all, delete-orphan')
 
     """ one to many relation between a customer and his/her reservations"""
-    reservations = relationship('Reservation', back_populates='customer')
+    reservations = relationship('Reservation', back_populates='customer'cascade='all, delete-orphan')
 
 
 class Payment(Base):
@@ -41,11 +41,11 @@ class Payment(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """a back reference to the customer who made the payment"""
-    customer = relationship('Customer', back_populates='payments')
+    customer = relationship('Customer', back_populates='payments'cascade='all, delete-orphan')
 
     """one to one relation between a payment and a reservation"""
     reservation = relationship(
-        'Reservation', uselist=False, back_populates='payment')
+        'Reservation', uselist=False, back_populates='payment'cascade='all, delete-orphan')
 
 
 class Reservation(Base):
@@ -61,10 +61,10 @@ class Reservation(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """a back reference to the customer who made the reservation"""
-    customer = relationship('Customer', back_populates='reservations')
+    customer = relationship('Customer', back_populates='reservations'cascade='all, delete-orphan')
 
     """a back reference to the payment made for the reservation"""
-    payment = relationship('Payment', back_populates='reservation')
+    payment = relationship('Payment', back_populates='reservation'cascade='all, delete-orphan')
 
 
 connection_string = 'mysql+mysqlconnector://habiba:babo@localhost/celestial'
