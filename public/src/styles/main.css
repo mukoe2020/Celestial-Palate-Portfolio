@@ -367,7 +367,7 @@ p.text-center.mt-3 {
 @media only screen and (max-width: 900px) {
 
     header {
-        height: 155vh;
+        height: 160vh;
     }
 
 
@@ -469,4 +469,26 @@ p.text-center.mt-3 {
       h3.dangling {
         font-size: 15px;
       }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
+    header {
+        width: 100%;
+        height: 100vh;
+    }
+
+    div.col-md-4 {
+        width: 100%;
+    }
+
+    p.text-center.about {
+        font-size: 18px;
+        line-height: 2;
+     }
+
+    nav ul li {
+      display: inline-block;
+      padding: 16px 20px;
+}
+
 }

@@ -1,12 +1,20 @@
+
+:root {
+  --default-color : white;
+  --primary-color : #ddab38;
+}
+
+
+
 .menu-item{
   color: #9d7d34;
   list-style: none;
   font-size: 20px;
   font-weight: bold;
   font-style: initial;
-  display: block; /* Change the display to block to allow centering */
-  margin: 0 auto; /* Auto margin horizontally centers the block element */
-  width: fit-content; /* Adjust width to fit the content */
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -20,12 +28,10 @@
   margin-top: 10px;
   text-align: center;
   text-decoration: underline;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-:root {
-  --default-color : white;
-  --primary-color : #ddab38;
-}
+
 
 
 
@@ -156,7 +162,7 @@ a.dropdown-item:hover {
 
 div.container {
   background-color: #4d4646;
-  border: 2px solid #f2de4b;
+  border: 1px solid #d3c560;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -238,10 +244,23 @@ div.container {
 
 @media only screen and (max-width: 900px) {
 
-      .logo {
-            display: none;
+      div.logo {
+            display: inline-flex;
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-top: -62px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            justify-content: center;
+            border-radius: 4px;
     }
 
+    .logo-img {
+        max-width: 45px;
+    }
 
 
       nav ul {
@@ -282,6 +301,16 @@ div.container {
       }
 
       div.container {
-        border-radius: 4px;
+        border-radius: 6px;
       }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
+  nav ul li {
+      display: inline-block;
+      padding: 16px 20px;
+}
+   div.container {
+    margin-top: 30px;
+   }
 }
