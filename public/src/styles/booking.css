@@ -14,7 +14,7 @@ html, body {
 
 body.custom-body {
       font-weight: lighter;
-      font-family: 'Dosis', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: linear-gradient(109.6deg, rgb(4, 5, 5) 11.2%, rgb(7, 8, 9) 51.2%, rgb(10, 9, 9) 98.6%);
 }
 
@@ -127,6 +127,16 @@ a.nav-link.dropdown-toggle:hover {
     text-align: center;
 }
 
+input.form-control {
+      padding: 10px;
+      margin: 0px auto;
+}
+
+form {
+      width: 60%;
+      margin: 0px auto;
+}
+
 div.submit {
     text-align: center;
 }
@@ -135,14 +145,14 @@ div.submit button {
     background-color: var(--primary-color);
     color: var(--default-color);
     border: none;
-    padding: 15px 30px;
+    padding: 10px 35px 10px 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 div.submit button:hover {
@@ -162,7 +172,7 @@ h4.mt-4.text-center {
 p {
       color: #a9a394;
       text-align: center;
-      font-family: 'Ubuntu Condensed', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 200;
       line-height: 1.5;
       font-size: 1em;
@@ -200,29 +210,42 @@ p.text-center.mt-3 {
 }
 
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
 
-      .logo {
-            line-height: 60px;
-            float: left;
-            margin: 16px 46px;
+      div.logo {
+            display: inline-flex;
             color: #fff;
             font-weight: bold;
             font-size: 20px;
             letter-spacing: 2px;
+            margin-top: -62px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            justify-content: center;
+            border-radius: 4px;
+    }
+
+    .logo-img {
+        max-width: 45px;
     }
 
       nav ul {
             max-height: 0px;
-            background: rgb(54, 53, 52);
+            background: #000;
       }
 
       nav.black ul {
-            background:rgba(255, 255, 255, 0.8);
+            background: black;
       }
 
       .showing {
-            max-height: 34em;
+            max-height: 400px;
+            padding: 5px;
+      }
+
+      .showing li {
+        padding: 3px;
       }
 
       nav ul li {
@@ -232,14 +255,16 @@ p.text-center.mt-3 {
             text-align: center;
       }
 
-      .menu-icon {
+      div.menu-icon {
             display: block;
-            line-height: 60px;
             width: 100%;
             text-align: right;
             box-sizing: border-box;
-            padding: 15px 24px;
             cursor: pointer;
-            color: #fff;
+            color: antiquewhite;
+            padding: 5px;
+            background-color: transparent;
+
       }
+
 }
