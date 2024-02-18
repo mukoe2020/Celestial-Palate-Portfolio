@@ -24,3 +24,13 @@ You will need these langauges, frameworks and tools to set things up in your env
   - Bootstrap
 * MySQL
 * SQLAlchemy
+
+## Incoming Additional Features
+* Users receiving an email with order/reservation information.
+* Calender showing available dates and times for reservations
+* API rendering reviews instead of the static webpage
+
+## Contributions
+
+All contributions and suggestions for additional features are welcomed!
+For suggestions, send us a DM [here](https://www.linkedin.com/in/habiba-adam-salisu-570555267/)
