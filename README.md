@@ -8,8 +8,8 @@ This project in the making is built by two aspiring full stack engineers, to enc
 
 
 ## AUTHORS
-[Habiba Adam Salisu](https://www.linkedin.com/in/habiba-adam-salisu-570555267/)
-[Memory Mukonda](https://www.linkedin.com/in/memory-mukonda-39ba06248/)
+* [Habiba Adam Salisu](https://www.linkedin.com/in/habiba-adam-salisu-570555267/)
+* [Memory Mukonda](https://www.linkedin.com/in/memory-mukonda-39ba06248/)
 
 ## Installation/SetUp Dependencies
 First, clone this repository:
@@ -24,5 +24,3 @@ You will need these langauges, frameworks and tools to set things up in your env
   - Bootstrap
 * MySQL
 * SQLAlchemy
-
-
