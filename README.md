@@ -22,7 +22,7 @@ Create a database in your SQL Server and name it "celestial" or according to ano
 Additionally, you'll have to create a user and grant necessary privileges to that user for the new database.
 ```bash
 CREATE DATABASE IF NOT EXISTS 'nameofyourdb';
-CREATE USER IF NOT EXIST 'user'@'localhost' IDENTIFIED BY 'yourpassword';
+CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'yourpassword';
 GRANT ALL PRIVILEGES ON nameofyourdb.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 ```
@@ -32,6 +32,7 @@ SQL ORM script
 ```bash
 connection_string = 'mysql+mysqlconnector://user:password@localhost/nameofyourdb'
 ```
+
 Flask database connection strings
 ```bash
 #config.py
@@ -40,7 +41,7 @@ Flask database connection strings
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://user:password@localhost/nameofyourdb'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
+```
 
 # database.py
 from sqlalchemy import create_engine
@@ -51,6 +52,7 @@ engine = create_engine(connection_string, pool_pre_ping=True)
 DBSession = sessionmaker(bind=engine)
 
 ```
+
 ## Tech Stack/Dependencies
 You will need these langauges, frameworks and tools to set things up in your environment
 
