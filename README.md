@@ -1,4 +1,4 @@
-### CELESTIAL PALATE(Version 1)
+# CELESTIAL PALATE(Version 1)
 This project ongoing is built by two aspiring full stack engineers, to encapsulate the end of foundations with ALX.
 
 [Celestial Palate](https://celestial.tophabiba.tech/public/) is an innovative website catering to a prestigious restaurant brand present across three diverse destinations: South Africa, Japan, and Italy. Designed with the customer in mind, this platform aims to elevate the dining experience by providing seamless digital interactions prior to visiting the restaurant.
@@ -41,16 +41,14 @@ Flask database connection strings
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://user:password@localhost/nameofyourdb'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-```
 
-# database.py
+#database.py
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 connection_string = 'mysql+mysqlconnector://user:password@localhost:3306/nameofyourdb'
 engine = create_engine(connection_string, pool_pre_ping=True)
 DBSession = sessionmaker(bind=engine)
-
 ```
 
 ## Tech Stack/Dependencies
