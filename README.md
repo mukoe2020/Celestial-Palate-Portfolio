@@ -17,6 +17,40 @@ First, clone this repository:
 git clone https://github.com/mukoe2020/Celestial-Palate-Portfolio.git
 ```
 
+NB:
+Create a database in your SQL Server and name it "celestial" or according to another naming convention.
+Additionally, you'll have to create a user and grant necessary privileges to that user for the new database.
+```bash
+CREATE DATABASE IF NOT EXISTS 'nameofyourdb';
+CREATE USER IF NOT EXIST 'user'@'localhost' IDENTIFIED BY 'yourpassword';
+GRANT ALL PRIVILEGES ON nameofyourdb.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+Then, you'll update the connection strings in your SQL ORM script and Flask application to reflect the newly created user and database
+SQL ORM script
+```bash
+connection_string = 'mysql+mysqlconnector://user:password@localhost/nameofyourdb'
+```
+Flask database connection strings
+```bash
+#config.py
+  class Config:
+
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://user:password@localhost/nameofyourdb'
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+# database.py
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+connection_string = 'mysql+mysqlconnector://user:password@localhost:3306/nameofyourdb'
+engine = create_engine(connection_string, pool_pre_ping=True)
+DBSession = sessionmaker(bind=engine)
+
+```
 ## Tech Stack/Dependencies
 You will need these langauges, frameworks and tools to set things up in your environment
 

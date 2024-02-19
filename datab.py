@@ -23,10 +23,10 @@ class Customer(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """ one to many relation between a customer and his/her payments"""
-    payments = relationship('Payment', back_populates='customer'cascade='all, delete-orphan')
+    payments = relationship('Payment', back_populates='customer')
 
     """ one to many relation between a customer and his/her reservations"""
-    reservations = relationship('Reservation', back_populates='customer'cascade='all, delete-orphan')
+    reservations = relationship('Reservation', back_populates='customer')
 
 
 class Payment(Base):
@@ -41,11 +41,11 @@ class Payment(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """a back reference to the customer who made the payment"""
-    customer = relationship('Customer', back_populates='payments'cascade='all, delete-orphan')
+    customer = relationship('Customer', back_populates='payments')
 
     """one to one relation between a payment and a reservation"""
     reservation = relationship(
-        'Reservation', uselist=False, back_populates='payment'cascade='all, delete-orphan')
+        'Reservation', uselist=False, back_populates='payment', cascade='all, delete-orphan')
 
 
 class Reservation(Base):
@@ -61,10 +61,10 @@ class Reservation(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     """a back reference to the customer who made the reservation"""
-    customer = relationship('Customer', back_populates='reservations'cascade='all, delete-orphan')
+    customer = relationship('Customer', back_populates='reservations')
 
     """a back reference to the payment made for the reservation"""
-    payment = relationship('Payment', back_populates='reservation'cascade='all, delete-orphan')
+    payment = relationship('Payment', back_populates='reservation')
 
 
 connection_string = 'mysql+mysqlconnector://habiba:babo@localhost/celestial'
@@ -73,8 +73,9 @@ Session = sessionmaker(bind=engine)
 Base.metadata.create_all(engine)
 session = Session()
 
-#inputting data into the database
+# inputting data into the database
 """
+new_customer2 = Customer(
     first_name='Memory',
     last_name='Doe',
     email='john.doe@example.com',
@@ -101,30 +102,19 @@ session.add(new_customer2)
 session.add(new_customer3)
 session.add(new_customer4)
 
-
-
-new_customer = Customer(
-    first_name='Amor',
-    last_name='Quinn',
-    email='amorquinn@example.com',
-    phone_number='0554567890'
-)
-
 new_payment = Payment(
-    customer_id='6bb7e87d-b68d-4f0c-a9c0-ad548f9226db',
+    customer_id='112ab436-8eb2-446b-8a99-6fccd251e259',
     amount=100,
     status='complete'
 )
-
+"""
 new_reservation = Reservation(
-    customer_id='b608b303-3a0d-42b9-af9d-089298f7d3c9',
-    payment_id='372e1ca3-485a-464a-9052-480e4f9c72ae',
+    customer_id='112ab436-8eb2-446b-8a99-6fccd251e259',
+    payment_id='ef328523-df4b-4e5c-b50a-fe51e2d36652',
     num_of_guests=4
 )
+
 session.add(new_reservation)
-"""
-
-
 
 session.commit()
 session.close()
