@@ -110,19 +110,21 @@ nav ul li a.nav-link.dropdown-toggle {
 }
 
 .dropdown-menu.show {
-        background-color: rgb(12, 11, 10);
+        background-color: rgb(3, 3, 3);
         padding: 0;
 }
 
 a.dropdown-item {
-    color: #987b3c;
+    color: #ac8123;
     padding: 3px 0px;
     font-family: 'Roboto', sans-serif;
 }
 
 a.dropdown-item:hover {
-    color: #caa852;
-    transition: all 100ms ease-in-out;
+    color: antiquewhite;
+    transition: all 200ms ease-in-out;
+    background-color: transparent;
+    text-decoration: overline;
 }
 
 a.nav-link.dropdown-toggle:hover {
