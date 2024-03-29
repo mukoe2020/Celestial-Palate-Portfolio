@@ -107,7 +107,6 @@ new_payment = Payment(
     amount=100,
     status='complete'
 )
-"""
 new_reservation = Reservation(
     customer_id='112ab436-8eb2-446b-8a99-6fccd251e259',
     payment_id='ef328523-df4b-4e5c-b50a-fe51e2d36652',
@@ -118,3 +117,4 @@ session.add(new_reservation)
 
 session.commit()
 session.close()
+"""
