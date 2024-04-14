@@ -1,0 +1,19 @@
+- Started version 2 Of Celestial Palate 14-04-2024
+- Used environmental variables to store sensitive information related to mongo username
+and password( Create a .env and assign variables to keys representing username and password)
+- Installed python dotenv using `pip3 install -U python-dotenv`
+- Loaded and acessed environmental variables to database script by importing essential modules
+- Successfully Connected to DB - H
+- Sucessfully connected to DB - M(Pending)
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
