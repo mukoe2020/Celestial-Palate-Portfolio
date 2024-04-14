@@ -5,7 +5,7 @@ and password( Create a .env and assign variables to keys representing username a
 - Loaded and acessed environmental variables to database script by importing essential modules
 - Successfully Connected to DB - H
 - Sucessfully connected to DB - M(Pending)
--
+- Adding a reviews collection
 -
 -
 -
