@@ -24,18 +24,20 @@ reviews_col = database['Reviews']
 """sample data insertion"""
 users_data = [
     {
-        "first_name": "Memory",
-        "last_name": "Doe",
-        "email": "memorydoe@gmail.com",
+        "first_name": "janet",
+        "last_name": "wilson",
+        "email": "janetwilson@gmail.com",
         "phone": "1234567890",
+        "branch": "african",
         "created_at": datetime.now(),
         "updated_at": datetime.now()
     },
     {
-        "first_name": "kudzie",
-        "last_name": "musekwa",
-        "email": "kukumus@gmail.com",
+        "first_name": "thor",
+        "last_name": "langford",
+        "email": "thorlan@gmail.com",
         "phone": "0987654321",
+        "branch": "italian",
         "created_at": datetime.now(),
         "updated_at": datetime.now()
     },
@@ -48,12 +50,13 @@ users_data = [
         "updated_at": datetime.now()
     },
     {
-        "first_name":"habibi",
-        "last_name": "adam",
-        "email": "habibi@gmail.com",
-        "phone": "069084011",
-        "created_at": datetime.now(),
-        "updated_at": datetime.now()
+       "first_name": "Itadori",
+       "last_name": "Yuuji",
+       "email": "itadori@gmail.com",
+       "phone":"44859562",
+       "branch": "japanese",
+       "created_at": datetime.now(),
+       "updated_at": datetime.now()
     }
 ]
 """ inserting data into the customer collection"""
@@ -125,8 +128,36 @@ user_reservations = [
 }
 ]
 #inserting data into the reservation collection
-reservation_col.insert_many(user_reservations)
+user_input = reservation_col.insert_many(user_reservations)
+reservation_id = r_input.inserted_ids
 
+customers_reviews= [
+    {
+    "customer_id": customer_id,  # Use the inserted customer ID
+    "reservation_id": reservation_id,
+    "rating": 5,
+    "comment": "Absolutely divine! The flavors at Celestial Palate are out of this world, " +
+               "From the perfectly seasoned Jollof rice to the succulent braised chicken, every " +
+               "bite is a culinary delight",
+    },
+    {
+    "customer_id": customer_id,  # Use the inserted customer ID
+    "reservation_id": reservation_id,
+    "rating": 4,
+    "comment": "I had the pleasure of dining at Celestial Palate,it was an unforgettable experience. "+
+                "The ambiance was charming, the service was impeccable. "+
+                "and the Chicken Marsala was the highlight of my meal"
+    },
+    {
+    "customer_id": customer_id,  # Use the inserted customer ID
+    "reservation_id": reservation_id,
+    "rating": 3,
+    "comment": " I was delighted by their authentic Udon noodles and red bean dorayaki the most.  "+
+                "The taste, service, and ambiance were all perfect. I would love to visit again!"+
+                "Arigatou Kozaimass!"
+    },
+]
+reviews_col.insert_many(customers_reviews)
 """
 try:
     reservation_col.insert_one(first_reservation)
