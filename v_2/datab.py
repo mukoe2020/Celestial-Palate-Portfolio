@@ -65,28 +65,28 @@ customer_id = result.inserted_ids
 
 user_payments= [
     {
-    "customer_id" : customer_id,
+    "customer_id" : customer_id[0],
     "amount" : 100,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
+    "customer_id" : customer_id[1],
     "amount" : 200,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
+    "customer_id" : customer_id[2],
     "amount" : 300,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
+    "customer_id" : customer_id[3],
     "amount" : 600,
     "status": "completed",
     "created_at": datetime.now(),
@@ -99,29 +99,29 @@ payment_id = p_input.inserted_ids
 
 user_reservations = [
     {
-    "customer_id" : customer_id,
-    "payment_id": payment_id,
+    "customer_id" : customer_id[0],
+    "payment_id": payment_id[0],
     "num_of_guests": 2,
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
-    "payment_id": payment_id,
+    "customer_id" : customer_id[1],
+    "payment_id": payment_id[1],
     "num_of_guests": 4,
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
-    "payment_id": payment_id,
+    "customer_id" : customer_id[2],
+    "payment_id": payment_id[2],
     "num_of_guests": 6,
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
-    "customer_id" : customer_id,
-    "payment_id": payment_id,
+    "customer_id" : customer_id[3],
+    "payment_id": payment_id[3],
     "num_of_guests": 8,
     "created_at": datetime.now(),
     "updated_at": datetime.now()

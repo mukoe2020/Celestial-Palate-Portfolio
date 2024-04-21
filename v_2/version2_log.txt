@@ -13,6 +13,7 @@ for the datab file
 -names to insert_many() function to avoid repetion of calling each user
 -also added the review collection
 -am still to figure out if i need to include their resprective id 
+-i have indexes the ids in all collections
 -
 -
 -
