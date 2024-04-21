@@ -129,28 +129,28 @@ user_reservations = [
 ]
 #inserting data into the reservation collection
 user_input = reservation_col.insert_many(user_reservations)
-reservation_id = r_input.inserted_ids
+reservation_id = p_input.inserted_ids
 
 customers_reviews= [
     {
-    "customer_id": customer_id,  # Use the inserted customer ID
-    "reservation_id": reservation_id,
+    "customer_id": customer_id[0],  # Use the inserted customer ID
+    "reservation_id": reservation_id[0],
     "rating": 5,
     "comment": "Absolutely divine! The flavors at Celestial Palate are out of this world, " +
                "From the perfectly seasoned Jollof rice to the succulent braised chicken, every " +
                "bite is a culinary delight",
     },
     {
-    "customer_id": customer_id,  # Use the inserted customer ID
-    "reservation_id": reservation_id,
+    "customer_id": customer_id[1],  # Use the inserted customer ID
+    "reservation_id": reservation_id[1],
     "rating": 4,
     "comment": "I had the pleasure of dining at Celestial Palate,it was an unforgettable experience. "+
                 "The ambiance was charming, the service was impeccable. "+
                 "and the Chicken Marsala was the highlight of my meal"
     },
     {
-    "customer_id": customer_id,  # Use the inserted customer ID
-    "reservation_id": reservation_id,
+    "customer_id": customer_id[3],  # Use the inserted customer ID
+    "reservation_id": reservation_id[3],
     "rating": 3,
     "comment": " I was delighted by their authentic Udon noodles and red bean dorayaki the most.  "+
                 "The taste, service, and ambiance were all perfect. I would love to visit again!"+
