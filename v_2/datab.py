@@ -10,7 +10,7 @@ from pymongo.server_api import ServerApi
 user_name = os.environ.get('MONGO_USER')
 passw= os.environ.get('MONGO_PASS')
 
-uri = f"mongodb+srv://username:passw@celestial.qtekhwe.mongodb.net/?retryWrites=true&w=majority&appName=Celestial"
+uri = f"mongodb+srv://{user_name}:{passw}@celestial.qtekhwe.mongodb.net/?retryWrites=true&w=majority&appName=Celestial"
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 database = client['celestial_db']
@@ -66,28 +66,28 @@ customer_id = result.inserted_ids
 user_payments= [
     {
     "customer_id" : customer_id[0],
-    "amount" : 100,
+    "amount" : 15,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
     "customer_id" : customer_id[1],
-    "amount" : 200,
+    "amount" : 35,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
     "customer_id" : customer_id[2],
-    "amount" : 300,
+    "amount" : 50,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
 },
 {
     "customer_id" : customer_id[3],
-    "amount" : 600,
+    "amount" : 100,
     "status": "completed",
     "created_at": datetime.now(),
     "updated_at": datetime.now()
