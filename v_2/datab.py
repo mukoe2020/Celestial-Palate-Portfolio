@@ -10,7 +10,7 @@ from pymongo.server_api import ServerApi
 user_name = os.environ.get('MONGO_USER')
 passw= os.environ.get('MONGO_PASS')
 
-uri = f"mongodb+srv://memory:mukoe@celestial.qtekhwe.mongodb.net/?retryWrites=true&w=majority&appName=Celestial"
+uri = f"mongodb+srv://username:passw@celestial.qtekhwe.mongodb.net/?retryWrites=true&w=majority&appName=Celestial"
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 database = client['celestial_db']

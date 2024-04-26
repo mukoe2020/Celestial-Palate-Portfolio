@@ -4,16 +4,15 @@ and password( Create a .env and assign variables to keys representing username a
 - Installed python dotenv using `pip3 install -U python-dotenv`
 - Loaded and acessed environmental variables to database script by importing essential modules
 - Successfully Connected to DB - H
-- Sucessfully connected to DB - M(Pending)
+- Sucessfully connected to DB - M(Connected)
 - Adding a reviews collection
 
-for the datab file
--have added more user ,payment and reservation  data 
--modified the payment,userand reservation collection into dictionaries and used the dictionaries
--names to insert_many() function to avoid repetion of calling each user
--also added the review collection
--am still to figure out if i need to include their resprective id 
--i have indexes the ids in all collections
+- have added more user ,payment and reservation  data
+- modified the payment,userand reservation collection into dictionaries and used the dictionaries
+- names to insert_many() function to avoid repetion of calling each user
+- also added the review collection
+- am still to figure out if i need to include their resprective id
+- i have indexes the ids in all collections
 -
 -
 -
