@@ -11,14 +11,14 @@ and password( Create a .env and assign variables to keys representing username a
 - modified the payment,userand reservation collection into dictionaries and used the dictionaries
 - names to insert_many() function to avoid repetion of calling each user
 - also added the review collection
-- am still to figure out if i need to include their resprective id
-- i have indexes the ids in all collections
+- am still to figure out if i need to include their respective id
+- i have indexed the ids in all collections
 -
--
--
--
--
--
+- Set up flask environmental variables in a .env file
+- Set up basic flask file structure
+- Linked database within config.py and later into init file which holds entry point for flask
+- Created first endpoint for retrieving specific resource(Customers) and regsitered blueprint within
+- entry point
 -
 -
 -
