@@ -19,7 +19,7 @@ and password( Create a .env and assign variables to keys representing username a
 - Linked database within config.py and later into init file which holds entry point for flask
 - Created first endpoint for retrieving specific resource(Customers) and regsitered blueprint within
 - entry point
--
+-  Endpoints needed(Get all resources, get all resources by identification, Post a resource)
 -
 -
 -
