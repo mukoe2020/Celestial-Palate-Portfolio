@@ -1,0 +1,55 @@
+from flask import jsonify, abort, request
+from flask.blueprints import Blueprint
+from pymongo import MongoClient
+from bson import ObjectId
+from datetime import datetime
+
+mongo_payments = Blueprint('mongo_payments', __name__)
+
+@mongo_payments.route('/', methods=['GET'], strict_slashes=False)
+def get_payments():
+    from v_2.rest.app import client
+    database = client['celestial_db']
+    collection = database['Payments']
+    all_docs = collection.find()
+
+    """converting the ObjectId to string for jsonify"""
+    payments = []
+    for doc in all_docs:
+        doc['_id'] = str(doc['_id'])
+        payments.append(doc)
+    return jsonify(list(payments)), 200
+
+@mongo_payments.route('/<string:payment_id>', methods=['GET'], strict_slashes=False)
+def get_payment(payment_id):
+    from v_2.rest.app import client
+    database = client['celestial_db']
+    collection = database['Payments']
+    payment = collection.find_one({'_id': ObjectId(payment_id)})
+    if payment:
+        payment['_id'] = str(payment['_id'])
+        return jsonify(payment), 200
+    else:
+        abort(404)
+        
+@mongo_payments.route('/', methods=['POST'], strict_slashes=False)
+def create_payment():
+    """creates a new payment"""
+    from v_2.rest.app import client
+    database = client['celestial_db']
+    collection = database['Payments']
+    if not request.json:
+        abort(400)
+    if 'customer_id' not in request.json or 'amount' not in request.json \
+        or 'status' not in request.json:
+        abort(400)
+    payment = { 'customer_id': request.json['customer_id'],
+                    'amount': request.json['amount'],
+                    'status': request.json['status'],
+                    'created_at' : datetime.now(),
+                    'updated_at' : datetime.now()
+                }
+    result = collection.insert_one(payment)
+    # convert the ObjectId to string for jsonify
+    payment['_id'] = str(result.inserted_id)
+    return jsonify(payment), 201

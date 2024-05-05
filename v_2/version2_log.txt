@@ -20,6 +20,9 @@ and password( Create a .env and assign variables to keys representing username a
 - Created first endpoint for retrieving specific resource(Customers) and regsitered blueprint within
 - entry point
 -  Endpoints needed(Get all resources, get all resources by identification, Post a resource)
+
+created endpoint for retrieving payments and reservation  and regstrating blueprints
+ Endpoints needed(Get all resources, get all resources by identification, Post a resource)
 -
 -
 -
