@@ -3,6 +3,8 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from v_2.rest.app.all_routes.cust import mongo_customers
+from v_2.rest.app.all_routes.pay import mongo_payments
+from v_2.rest.app.all_routes.reserv import mongo_reservations
 
 
 app = Flask(__name__)
@@ -29,6 +31,8 @@ __all__ = ['app', 'client']
 
 
 app.register_blueprint(mongo_customers, url_prefix='/v_2/mongo_customers')
+app.register_blueprint(mongo_payments, url_prefix='/v_2/mongo_payments')
+app.register_blueprint(mongo_reservations, url_prefix='/v_2/mongo_reservations')
 
 
 if __name__ == '__main__':

@@ -15,10 +15,12 @@ def get_payments():
 
     """converting the ObjectId to string for jsonify"""
     payments = []
-    for doc in all_docs:
-        doc['_id'] = str(doc['_id'])
-        payments.append(doc)
+    for payment in all_docs:
+        payment['_id'] = str(payment['_id'])
+        payment['customer_id'] = str(payment['customer_id'])
+        payments.append(payment)
     return jsonify(list(payments)), 200
+
 
 @mongo_payments.route('/<string:payment_id>', methods=['GET'], strict_slashes=False)
 def get_payment(payment_id):
@@ -28,10 +30,13 @@ def get_payment(payment_id):
     payment = collection.find_one({'_id': ObjectId(payment_id)})
     if payment:
         payment['_id'] = str(payment['_id'])
+        payment['customer_id'] = str(payment['customer_id'])
         return jsonify(payment), 200
     else:
         abort(404)
-        
+
+
+
 @mongo_payments.route('/', methods=['POST'], strict_slashes=False)
 def create_payment():
     """creates a new payment"""
@@ -40,9 +45,13 @@ def create_payment():
     collection = database['Payments']
     if not request.json:
         abort(400)
-    if 'customer_id' not in request.json or 'amount' not in request.json \
-        or 'status' not in request.json:
+    if 'customer_id' not in request.json or 'amount' not in request.json:
         abort(400)
+    if 'amount' in request.json and request.json['amount'] == 100:
+        request.json['status'] = "complete"
+    else:
+        request.json['status'] = "pending"
+
     payment = { 'customer_id': request.json['customer_id'],
                     'amount': request.json['amount'],
                     'status': request.json['status'],
@@ -52,4 +61,5 @@ def create_payment():
     result = collection.insert_one(payment)
     # convert the ObjectId to string for jsonify
     payment['_id'] = str(result.inserted_id)
+    payment['customer_id'] = str(payment['customer_id'])
     return jsonify(payment), 201

@@ -15,10 +15,13 @@ def get_reservations():
 
     """converting the ObjectId to string for jsonify"""
     reservations = []
-    for doc in all_docs:
-        doc['_id'] = str(doc['_id'])
-        reservations.append(doc)
+    for reserved in all_docs:
+        reserved['_id'] = str(reserved['_id'])
+        reserved['customer_id'] = str(reserved['customer_id'])
+        reserved['payment_id'] = str(reserved['payment_id'])
+        reservations.append(reserved)
     return jsonify(list(reservations)), 200
+
 
 @mongo_reservations.route('/<string:reservation_id>', methods=['GET'], strict_slashes=False)
 def get_reservation(reservation_id):
@@ -28,6 +31,8 @@ def get_reservation(reservation_id):
     reservation = collection.find_one({'_id': ObjectId(reservation_id)})
     if reservation:
         reservation['_id'] = str(reservation['_id'])
+        reservation['customer_id'] = str(reservation['customer_id'])
+        reservation['payment_id'] = str(reservation['payment_id'])
         return jsonify(reservation), 200
     else:
         abort(404)
@@ -52,4 +57,6 @@ def create_reservation():
     result = collection.insert_one(reservation)
     # convert the ObjectId to string for jsonify
     reservation['_id'] = str(result.inserted_id)
+    reservation['customer_id'] = str(reservation['customer_id'])
+    reservation['payment_id'] = str(reservation['payment_id'])
     return jsonify(reservation), 201
