@@ -7,8 +7,8 @@ from v_2.rest.app.all_routes.pay import mongo_payments
 from v_2.rest.app.all_routes.reserv import mongo_reservations
 from dotenv import load_dotenv
 
-load_dotenv()
 
+load_dotenv()
 app = Flask(__name__)
 app.config.from_object('v_2.rest.app.config.Config')
 
@@ -38,5 +38,5 @@ app.register_blueprint(mongo_reservations, url_prefix='/v_2/mongo_reservations')
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host="0.0.0.0", port=port)
