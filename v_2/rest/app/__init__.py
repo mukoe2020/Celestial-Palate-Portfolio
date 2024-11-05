@@ -36,4 +36,5 @@ app.register_blueprint(mongo_reservations, url_prefix='/v_2/mongo_reservations')
 
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
