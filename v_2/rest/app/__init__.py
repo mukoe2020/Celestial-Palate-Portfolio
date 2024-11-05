@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 from v_2.rest.app.all_routes.cust import mongo_customers
 from v_2.rest.app.all_routes.pay import mongo_payments
 from v_2.rest.app.all_routes.reserv import mongo_reservations
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config.from_object('v_2.rest.app.config.Config')
