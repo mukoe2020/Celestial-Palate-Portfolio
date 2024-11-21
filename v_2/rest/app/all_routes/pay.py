@@ -36,28 +36,27 @@ def get_payment(payment_id):
         abort(404)
 
 
-
-@mongo_payments.route('/', methods=['POST'], strict_slashes=False)
-def create_payment():
+@mongo_payments.route('/<customer_id>', methods=['POST'], strict_slashes=False)
+def create_payment(customer_id):
     """creates a new payment"""
     from v_2.rest.app import client
     database = client['celestial_db']
     collection = database['Payments']
     if not request.json:
         abort(400)
-    if 'customer_id' not in request.json or 'amount' not in request.json:
+    if 'amount' not in request.json:
         abort(400)
     if 'amount' in request.json and request.json['amount'] == 100:
         request.json['status'] = "complete"
     else:
         request.json['status'] = "pending"
 
-    payment = { 'customer_id': request.json['customer_id'],
-                    'amount': request.json['amount'],
-                    'status': request.json['status'],
-                    'created_at' : datetime.now(),
-                    'updated_at' : datetime.now()
-                }
+    payment = { 'customer_id': customer_id,
+                'amount': request.json['amount'],
+                'status': request.json['status'],
+                'created_at' : datetime.now(),
+                'updated_at' : datetime.now()
+              }
     result = collection.insert_one(payment)
     # convert the ObjectId to string for jsonify
     payment['_id'] = str(result.inserted_id)

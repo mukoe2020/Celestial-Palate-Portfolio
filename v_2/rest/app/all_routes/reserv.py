@@ -37,26 +37,22 @@ def get_reservation(reservation_id):
     else:
         abort(404)
 
-@mongo_reservations.route('/', methods=['POST'], strict_slashes=False)
-def create_reservation():
+
+@mongo_reservations.route('/<customer_id>/<payment_id>/reservations', methods=['POST'], strict_slashes=False)
+def create_reservation(customer_id, payment_id):
     """creates a new reservation"""
     from v_2.rest.app import client
     database = client['celestial_db']
     collection = database['Reservations']
     if not request.json:
         abort(400)
-    if 'payment_id' not in request.json or 'customer_id' not in request.json \
-        or 'num_of_guest' not in request.json:
+    if 'num_of_guests' not in request.json:
         abort(400)
-    reservation = { 'payment_id': request.json['payment_id'],
-                    'customer_id': request.json['customer_id'],
-                    'num_of_guest': request.json['num_of_guest'],
+    reservation = { 'customer_id': customer_id,
+                    'payment_id': payment_id,
+                    'num_of_guests': request.json['num_of_guests'],
                     'created_at' : datetime.now(),
                     'updated_at' : datetime.now()
-                }
+                  }
     result = collection.insert_one(reservation)
-    # convert the ObjectId to string for jsonify
-    reservation['_id'] = str(result.inserted_id)
-    reservation['customer_id'] = str(reservation['customer_id'])
-    reservation['payment_id'] = str(reservation['payment_id'])
-    return jsonify(reservation), 201
+    return jsonify({'id': str(result.inserted_id), 'customer_id': customer_id, 'payment_id': payment_id, 'num_of_guests': request.json['num_of_guests'], 'created_at': datetime.now(), 'updated_at': datetime.now()}), 201
