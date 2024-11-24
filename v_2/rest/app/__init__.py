@@ -14,6 +14,7 @@ app.config.from_object('v_2.rest.app.config.Config')
 
 client = MongoClient(app.config['MONGO_STRING'])
 
+CORS(app)
 # testing mongo database connection
 """
 try:
