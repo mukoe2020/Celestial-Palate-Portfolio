@@ -45,7 +45,7 @@ def create_customer():
     if not request.json:
         abort(400)
     if 'first_name' not in request.json or 'last_name' not in request.json \
-        or 'email' not in request.json or 'phone' not in request.json
+        or 'email' not in request.json or 'phone' not in request.json:
         abort(400)
     customer = { 'first_name': request.json['first_name'],
                     'last_name': request.json['last_name'],
