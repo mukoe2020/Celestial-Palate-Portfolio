@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         date: date.value
     };
   // Post request to create a customer first
-    let customer_url = 'http://127.0.0.1:5000/customers';
+    let customer_url = 'https://celestial-palate-portfolio.onrender.com/v_2/mongo_customers';
     fetch(customer_url, {
         method: 'POST',
         headers: {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let customer_id = data.id;
 
         // Post request to create a payment
-        let payment_url = `http://127.0.0.1:5000/payments/${customer_id}/payments`;
+        let payment_url = `https://celestial-palate-portfolio.onrender.com/v_2/mongo_payments${customer_id}/payments`;
 
         fetch(payment_url, {
             method: 'POST',
