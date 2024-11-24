@@ -36,7 +36,7 @@ def get_payment(payment_id):
         abort(404)
 
 
-@mongo_payments.route('/<customer_id>', methods=['POST'], strict_slashes=False)
+@mongo_payments.route('/<customer_id>/payments', methods=['POST'], strict_slashes=False)
 def create_payment(customer_id):
     """creates a new payment"""
     from v_2.rest.app import client
