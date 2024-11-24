@@ -45,14 +45,12 @@ def create_customer():
     if not request.json:
         abort(400)
     if 'first_name' not in request.json or 'last_name' not in request.json \
-        or 'email' not in request.json or 'phone' not in request.json \
-        or 'branch' not in request.json :
+        or 'email' not in request.json or 'phone' not in request.json
         abort(400)
     customer = { 'first_name': request.json['first_name'],
                     'last_name': request.json['last_name'],
                     'email': request.json['email'],
                     'phone': request.json['phone'],
-                    'branch': request.json['branch'],
                     'created_at' : datetime.now(),
                     'updated_at' : datetime.now()
                 }
