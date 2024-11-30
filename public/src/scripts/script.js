@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         date: date.value
     };
 
-    console.log('Customer Data:', customer_data);
+    //console.log('Customer Data:', customer_data);
   // Post request to create a customer first
     let customer_url = 'https://celestial-backend-4fkw.onrender.com/v_2/mongo_customers/';
     fetch(customer_url, {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data);
+        //console.log('Success:', data);
 
         let customer_id = data._id;
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            console.log('Success:', data);
+            //console.log('Success:', data);
 
             let customer_id = data.customer_id;
             let payment_id = data._id;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data);
+                //console.log('Success:', data);
                 message.innerHTML = 'Your reservation has been made!';
             })
         })
