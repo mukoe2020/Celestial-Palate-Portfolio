@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         first_name: firstName.value,
         last_name: lastName.value,
         email: email.value,
-        phone_number: phoneNumber.value
+        phone: phoneNumber.value
     };
 
     let payment_data = {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         date: date.value
     };
   // Post request to create a customer first
-    let customer_url = 'https://celestial-backend-4fkw.onrender.com/v_2/mongo_customers';
+    let customer_url = 'http://127.0.0.1:5000/v_2/mongo_customers/';
     fetch(customer_url, {
         method: 'POST',
         headers: {
@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         console.log('Success:', data);
 
-        let customer_id = data.id;
+        let customer_id = data._id;
 
         // Post request to create a payment
-        let payment_url = `https://celestial-backend-4fkw.onrender.com/v_2/mongo_payments${customer_id}/payments`;
+        let payment_url = `http://127.0.0.1:5000/v_2/mongo_payments/${customer_id}/payments`;
 
         fetch(payment_url, {
             method: 'POST',
@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Success:', data);
 
             let customer_id = data.customer_id;
-            let payment_id = data.id;
+            let payment_id = data._id;
 
-            let reservation_url = `https://celestial-backend-4fkw.onrender.com/v_2/${customer_id}/${payment_id}/reservations`;
+            let reservation_url = `http://127.0.0.1:5000/v_2/mongo_reservations/${customer_id}/${payment_id}/reservations`;
 
             fetch(reservation_url, {
                 method: 'POST',

@@ -1,4 +1,4 @@
-from flask import jsonify, abort, request
+from flask import jsonify, abort, request, make_response
 from flask.blueprints import Blueprint
 from pymongo import MongoClient
 from bson import ObjectId
@@ -45,15 +45,22 @@ def create_reservation(customer_id, payment_id):
     from v_2.rest.app import client
     database = client['celestial_db']
     collection = database['Reservations']
-    if not request.json:
-        abort(400)
-    if 'num_of_guests' not in request.json:
-        abort(400)
-    reservation = { 'customer_id': customer_id,
-                    'payment_id': payment_id,
-                    'num_of_guests': request.json['num_of_guests'],
-                    'created_at' : datetime.now(),
-                    'updated_at' : datetime.now()
-                  }
-    result = collection.insert_one(reservation)
-    return jsonify({'id': str(result.inserted_id), 'customer_id': customer_id, 'payment_id': payment_id, 'num_of_guests': request.json['num_of_guests'], 'created_at': datetime.now(), 'updated_at': datetime.now()}), 201
+    if request.method == 'POST':
+        if not request.json:
+            abort(400)
+        if 'num_of_guests' not in request.json:
+            abort(400)
+        reservation = { 'customer_id': customer_id,
+        'payment_id': payment_id,
+        'num_of_guests': request.json['num_of_guests'],
+        'created_at' : datetime.now(),
+        'updated_at' : datetime.now()
+        }
+        result = collection.insert_one(reservation)
+        return jsonify({'id': str(result.inserted_id), 'customer_id': customer_id, 'payment_id': payment_id, 'num_of_guests': request.json['num_of_guests'], 'created_at': datetime.now(), 'updated_at': datetime.now()}), 201
+    elif request.method == 'OPTIONS':
+        # Handle preflight request
+        response = make_response()
+        response.headers.add("Access-Control-Allow-Methods", "POST")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+        return response

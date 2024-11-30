@@ -1,4 +1,4 @@
-from flask import jsonify, abort, request
+from flask import jsonify, abort, request, make_response
 from flask.blueprints import Blueprint
 from pymongo import MongoClient
 from bson import ObjectId
@@ -43,23 +43,29 @@ def create_payment(customer_id):
     from v_2.rest.app import client
     database = client['celestial_db']
     collection = database['Payments']
-    if not request.json:
-        abort(400)
-    if 'amount' not in request.json:
-        abort(400)
-    if 'amount' in request.json and request.json['amount'] == 100:
-        request.json['status'] = "complete"
-    else:
-        request.json['status'] = "pending"
+    if request.method == 'POST':
+        if not request.json:
+            abort(400)
+        if 'amount' not in request.json:
+            abort(400)
+        if 'amount' in request.json and request.json['amount'] == 100:
+            request.json['status'] = "complete"
+        else:
+            request.json['status'] = "pending"
 
-    payment = { 'customer_id': customer_id,
-                'amount': request.json['amount'],
-                'status': request.json['status'],
-                'created_at' : datetime.now(),
-                'updated_at' : datetime.now()
-              }
-    result = collection.insert_one(payment)
-    # convert the ObjectId to string for jsonify
-    payment['_id'] = str(result.inserted_id)
-    payment['customer_id'] = str(payment['customer_id'])
-    return jsonify(payment), 201
+        payment = { 'customer_id': customer_id,
+        'amount': request.json['amount'],
+        'status': request.json['status'],
+        'created_at' : datetime.now(),
+        'updated_at' : datetime.now()
+        }
+        result = collection.insert_one(payment)
+        payment['_id'] = str(result.inserted_id)
+        payment['customer_id'] = str(payment['customer_id'])
+        return jsonify(payment), 201
+    elif request.method == 'OPTIONS':
+        # Handle preflight request
+        response = make_response()
+        response.headers.add("Access-Control-Allow-Methods", "POST")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+        return response
