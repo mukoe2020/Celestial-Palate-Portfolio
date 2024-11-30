@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
         num_of_guests: numGuests.value,
         date: date.value
     };
+
+    console.log('Customer Data:', customer_data);
   // Post request to create a customer first
     let customer_url = 'https://celestial-backend-4fkw.onrender.com/v_2/mongo_customers/';
     fetch(customer_url, {
