@@ -78,8 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => {
         if (!response.ok) {
+            return response.json().then(errorData => {
+            console.error('Error details:', errorData);
             throw new Error('Failed to create customer');
-        }
+        });
+    }
         return response.json();
     })
     .then(data => {
