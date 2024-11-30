@@ -4,6 +4,7 @@ from flask.blueprints import Blueprint
 from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
+from flask_cors import cross_origin
 
 mongo_customers = Blueprint('mongo_customers', __name__)
 
@@ -35,8 +36,8 @@ def get_customer(customer_id):
     else:
         abort(404)
 
-
-@mongo_customers.route('/', methods=['POST'], strict_slashes=False)
+@cross_origin()
+@mongo_customers.route('/', methods=['POST', 'OPTIONS'], strict_slashes=False)
 def create_customer():
     """creates a new customer"""
     from v_2.rest.app import client

@@ -3,6 +3,7 @@ from flask.blueprints import Blueprint
 from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
+from flask_cors import cross_origin
 
 mongo_payments = Blueprint('mongo_payments', __name__)
 
@@ -35,8 +36,8 @@ def get_payment(payment_id):
     else:
         abort(404)
 
-
-@mongo_payments.route('/<customer_id>/payments', methods=['POST'], strict_slashes=False)
+@cross_origin()
+@mongo_payments.route('/<customer_id>/payments', methods=['POST', 'OPTIONS'], strict_slashes=False)
 def create_payment(customer_id):
     """creates a new payment"""
     from v_2.rest.app import client

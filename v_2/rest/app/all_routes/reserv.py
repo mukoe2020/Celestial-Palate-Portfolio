@@ -3,6 +3,7 @@ from flask.blueprints import Blueprint
 from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
+from flask_cors import cross_origin
 
 mongo_reservations = Blueprint('mongo_reservations', __name__)
 
@@ -37,8 +38,8 @@ def get_reservation(reservation_id):
     else:
         abort(404)
 
-
-@mongo_reservations.route('/<customer_id>/<payment_id>/reservations', methods=['POST'], strict_slashes=False)
+@cross_origin()
+@mongo_reservations.route('/<customer_id>/<payment_id>/reservations', methods=['POST', 'OPTIONS'], strict_slashes=False)
 def create_reservation(customer_id, payment_id):
     """creates a new reservation"""
     from v_2.rest.app import client
