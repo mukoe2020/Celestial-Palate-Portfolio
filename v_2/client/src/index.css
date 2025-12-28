@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Luxury dark palette */
+    --background: 0 0% 4%;
+    --foreground: 43 30% 90%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 43 30% 90%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 43 30% 90%;
+
+    /* Rich gold */
+    --primary: 43 50% 58%;
+    --primary-foreground: 0 0% 4%;
+
+    /* Muted charcoal */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 43 30% 90%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 43 10% 60%;
+
+    /* Accent gold glow */
+    --accent: 43 60% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 43 20% 20%;
+    --input: 0 0% 12%;
+    --ring: 43 50% 58%;
+
+    --radius: 0.25rem;
+
+    /* Custom luxury tokens */
+    --gold: 43 50% 58%;
+    --gold-light: 43 60% 70%;
+    --gold-dark: 43 40% 45%;
+    --ivory: 43 30% 90%;
+    --charcoal: 0 0% 7%;
+    --charcoal-deep: 0 0% 4%;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 60% 70%), hsl(43 50% 58%), hsl(43 40% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.7) 50%, hsl(0 0% 4%) 100%);
+    
+    /* Shadows */
+    --shadow-gold: 0 0 40px hsl(43 50% 58% / 0.15);
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+
+    /* Sidebar - keeping defaults but themed */
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 43 30% 90%;
+    --sidebar-primary: 43 50% 58%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 43 30% 90%;
+    --sidebar-border: 43 20% 20%;
+    --sidebar-ring: 43 50% 58%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 43 30% 90%;
+    --card: 0 0% 7%;
+    --card-foreground: 43 30% 90%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 43 30% 90%;
+    --primary: 43 50% 58%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 43 30% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 43 10% 60%;
+    --accent: 43 60% 50%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 43 20% 20%;
+    --input: 0 0% 12%;
+    --ring: 43 50% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(43 60% 70%), hsl(43 50% 58%), hsl(43 40% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, hsl(43 60% 70%), hsl(43 50% 58%)) 1;
+  }
+
+  .glass-dark {
+    background: hsl(0 0% 4% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(43 20% 20% / 0.3);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 40px hsl(43 50% 58% / 0.2);
+  }
+
+  .elegant-underline {
+    position: relative;
+  }
+
+  .elegant-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(43 50% 58%), transparent);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.8s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(1.1) translateX(-2%);
+  }
+}
+
+@keyframes heroSlideIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) translateX(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes heroSlideOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05) translateX(-5%);
+  }
+}
+
+.animate-hero-zoom {
+  animation: heroZoom 25s ease-out forwards;
+}
+
+.animate-hero-slide-in {
+  animation: heroSlideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-hero-slide-out {
+  animation: heroSlideOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 4%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(43 50% 58% / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(43 50% 58% / 0.5);
+}
